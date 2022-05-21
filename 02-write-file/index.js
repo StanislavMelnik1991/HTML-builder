@@ -9,13 +9,12 @@ class CreateFile {
   
   init() {
     console.log('введите текст');
-    stdin.on('data', data => {
+    stdin.once('data', data => {
       fs.writeFile(
         path.join(__dirname, this.fileName),
         data,
         (err) => {
           if (err) throw err;
-          stdin.removeAllListeners('data');
           this.edit();
         }
       );
@@ -50,5 +49,5 @@ process.on('SIGINT', () => {
   process.exit();
 });
 
-const file = new CreateFile('tmp');
+const file = new CreateFile('note');
 file.init();
