@@ -12,7 +12,7 @@ async function copyDirContain(src, dest){
           fs.copyFile(src+'\\'+file.name, dest+'\\'+file.name, err=>{if (err) throw err;});
         }
         else{
-          copyDirContain(src+'\\'+file.name, dest+'\\'+file.name);
+          copyDirContain(path.join(src, file.name), path.join(dest, file.name));
         }
       }
     })

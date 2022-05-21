@@ -19,7 +19,7 @@ async function dirContain(dir){
         }
         // хз, надо ли читать файлы внутри вложенных папок, но добавлю на всякий случай
         else{
-          dirContain(dir+'\\'+file.name);
+          dirContain(path.join(dir, file.name));
         }
       }
     })
